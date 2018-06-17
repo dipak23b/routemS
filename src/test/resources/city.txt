@@ -1,0 +1,15 @@
+Boston, New York
+
+Philadelphia, newark
+
+White Plains, edison
+
+edison, newark
+
+newark, Boston
+
+Trenton, Albany
+
+Shahada, Lonkheda
+
+Lonkheda, Temli

@@ -1,0 +1,17 @@
+<configuration scan="true" scanPeriod="5 seconds" debug="false">
+	
+	<property name="logPattern" value="%d{dd-MM-yyyy HH:mm:ss.SSS} $ threadId : [%thread] %-5level 
+				[host :%X{hostname} msName : %X{msName}] [transTrail : %X{trans_id}]
+				%logger{36}.%M - %msg%n" />
+	
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>${logPattern}</pattern>
+		</encoder>
+	</appender>
+
+  <root level="info">
+    <appender-ref ref="STDOUT"/>
+  </root>
+
+</configuration>
