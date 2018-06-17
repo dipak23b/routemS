@@ -1,10 +1,20 @@
 # routemS
 
-find the connection between two cities provided by doing a file lookup which lists routes between 2 cities.
+Loads the list of routes from city.txt (/opt/etc/config/) during server startup and cached.
 
-## Getting Started
+Resource : /connected
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+	Checks if route exists between 2 cities. List of routes are fetched from city.txt placed in 	/opt/etc/config.	Uses Recursion to find out the connection between 2 cities when there is no 	direct connection.
+
+Returns :
+
+		HTTP CODE		Response	use case
+		
+		400				No			Bad Request for invalid input to resource
+		500				No			Internal Server error/Unknown application exception
+		200				Yes			Connection found between origin and destination
+		200				No			no connection between origin and destination
+
 
 ### Prerequisites
 
@@ -12,23 +22,32 @@ mavan (3.3.x), java 8, git
 
 ### Installing
 
+1. git clone https://github.com/dipak23b/routemS.git
+2. cd routemS
+2. mvn package
+3. cd target
+4. java -jar routemS-0.0.1-SNAPSHOT.jar
 
-## Running the tests
+### Verify installation
 
-Explain how to run the automated tests for this system
+http://localhost:8080/connected?origin=Boston&destination=Newark
+http://localhost:8080/connected?origin=Boston&destination=Philadelphia
+http://localhost:8080/connected?origin=Philadelphia&destination=Albany
+
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+spring configuration (application.properties) , logging configruation (logback.xml) and city.txt are loaded from /opt/etc/config/ folder.
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+NA. master branch code does not include versioning for connection endpoint.
 
 ## Authors
+Dipak Patil
 
 ## License
-
+NA
 
 ## Acknowledgments
-
+NA
