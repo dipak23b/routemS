@@ -75,8 +75,9 @@ public class RouteHelper {
 						|| citiesReachablefromSource.size()==0){
 			return false;			
 		}else{
-			List<String> visitedCities = alreadyVisitedCities;
-			alreadyVisitedCities.add(source.toLowerCase().trim());
+			List<String> visitedCities = new ArrayList<String>();
+			visitedCities.addAll(alreadyVisitedCities);
+			visitedCities.add(source.toLowerCase().trim());
 			
 			Optional<String> foundCity = citiesReachablefromSource
 									.stream()
